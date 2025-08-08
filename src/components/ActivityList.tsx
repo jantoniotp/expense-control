@@ -3,6 +3,7 @@ import type { Activity } from "../types"
 import { PencilSquareIcon, XCircleIcon } from '@heroicons/react/24/outline'
 import type { ActivityActions } from "../reducers/activity-reducer"
 import { formatDate } from "../helpers"
+import { formatCurrency } from "../helpers"
 
 type ActivityListProps = {
     activities: Activity[],
@@ -33,7 +34,7 @@ export default function ActivityList({activities, dispatch, categoryName} : Acti
                             </p>
                             <p className="text-2xl font-bold pt-5">{activity.name}</p>
                             <p className="font-black text-4xl text-lime-500">
-                                ${activity.price}
+                                {formatCurrency(activity.price)}
                             </p>
                             <p className="font-medium text-gray-500">
                                 {formatDate(activity.date)}
